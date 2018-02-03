@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { SunnyComponent } from './weather-display/sunny/sunny.component';
 import { RainyComponent } from './weather-display/rainy/rainy.component';
 import { ThunderStormComponent } from './weather-display/thunder-storm/thunder-storm.component';
 import { CloudyComponent } from './weather-display/cloudy/cloudy.component';
+import { WeatherServiceService } from './services/weather-service.service';
+// import { HttpClient } from 'selenium-webdriver/http';
 
 
 @NgModule({
@@ -19,12 +22,15 @@ import { CloudyComponent } from './weather-display/cloudy/cloudy.component';
     SunnyComponent,
     RainyComponent,
     ThunderStormComponent,
-    CloudyComponent
+    CloudyComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    WeatherServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
